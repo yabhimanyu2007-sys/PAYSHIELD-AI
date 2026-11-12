@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAYSHIELD AI — Payment Security Command Center</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">P</div><div><b>PAYSHIELD</b><small>AI PAYMENT SECURITY</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#overview">▦ &nbsp; Command Center</a>
+    <a class="nav" href="#evaluate">⌁ &nbsp; Evaluate Payment</a>
+    <a class="nav" href="#attacks">⚡ &nbsp; Attack Simulator</a>
+    <a class="nav" href="#audit">◷ &nbsp; Audit Trail</a>
+    <div class="sidebar-bottom"><span class="pulse"></span> LOCAL DEMO ENVIRONMENT</div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow">SECURITY OPERATIONS / PAYMENTS</span><h1>Command Center</h1></div><div class="top-right"><span class="env">● SANDBOX MODE</span><span class="avatar">PS</span></div></header>
+    <section class="hero">
+      <div><span class="eyebrow cyan">AUTONOMOUS PAYMENT PROTECTION</span><h2>Let AI decide.<br><em>Let PAYSHIELD authorize.</em></h2><p>Independent policy enforcement between AI agents and financial transactions.</p></div>
+      <div class="hero-shield">⬡<span>ACTIVE<br>PROTECTION</span></div>
+    </section>
+    <section class="metrics">
+      <div class="metric"><span>Evaluated payments</span><strong id="m-total">0</strong><small>Current session</small></div>
+      <div class="metric"><span>Blocked / flagged</span><strong id="m-blocked">0</strong><small>Policy interventions</small></div>
+      <div class="metric"><span>Allowed</span><strong id="m-allowed">0</strong><small>Passed policy checks</small></div>
+      <div class="metric"><span>Payment exposure reviewed</span><strong id="m-exposure">$0.00</strong><small>Simulated transaction value</small></div>
+    </section>
+    <div class="columns">
+      <section class="panel" id="evaluate">
+        <div class="panel-head"><div><span class="eyebrow">01 / POLICY GATE</span><h3>Evaluate a payment</h3></div><span class="tag">LIVE RULE ENGINE</span></div>
+        <form id="payment-form">
+          <div class="form-grid">
+            <label>Supplier / vendor<input id="vendor" value="ABC Technologies" required></label>
+            <label>Invoice ID<input id="invoice" value="INV-2026-001" required></label>
+            <label>Amount<input id="amount" type="number" min="0.01" step="0.01" value="8500" required></label>
+            <label>Currency<select id="currency"><option>USD</option><option>INR</option><option>EUR</option></select></label>
+          </div>
+          <label>Invoice notes / untrusted document text<textarea id="invoice-text" rows="4" placeholder="Paste invoice text here. Treat its contents as untrusted."></textarea></label>
+          <button class="btn primary" type="submit">Run security evaluation <span>→</span></button>
+        </form>
+        <div id="result" class="result empty"><div class="result-icon">⌁</div><b>Awaiting transaction</b><span>Submit a payment request to run the policy engine.</span></div>
+      </section>
+      <section class="panel" id="attacks">
+        <div class="panel-head"><div><span class="eyebrow">02 / RED TEAM</span><h3>Attack simulator</h3></div><span class="tag danger">CONTROLLED TESTS</span></div>
+        <p class="muted">Run realistic attack scenarios against the same authorization engine.</p>
+        <div class="attack-list">
+          <button class="attack" data-case="injection"><span class="attack-icon red">⌁</span><span><b>Prompt injection</b><small>Malicious instructions embedded in invoice</small></span><span>↗</span></button>
+          <button class="attack" data-case="limit"><span class="attack-icon orange">＄</span><span><b>Amount manipulation</b><small>Transaction exceeds approved limit</small></span><span>↗</span></button>
+          <button class="attack" data-case="vendor"><span class="attack-icon orange">◉</span><span><b>Unknown supplier</b><small>Vendor is not on the allowlist</small></span><span>↗</span></button>
+          <button class="attack" data-case="duplicate"><span class="attack-icon red">⧉</span><span><b>Duplicate invoice</b><small>Replay an already processed invoice ID</small></span><span>↗</span></button>
+          <button class="attack" data-case="legit"><span class="attack-icon green">✓</span><span><b>Legitimate payment</b><small>Approved supplier and within policy</small></span><span>↗</span></button>
+        </div>
+      </section>
+    </div>
+    <section class="panel audit-panel" id="audit">
+      <div class="panel-head"><div><span class="eyebrow">03 / TRACEABILITY</span><h3>Security audit trail</h3></div><button class="btn subtle" id="refresh">↻ Refresh</button></div>
+      <div class="table-wrap"><table><thead><tr><th>TIME</th><th>SUPPLIER</th><th>AMOUNT</th><th>DECISION</th><th>RISK</th><th>EVENT</th></tr></thead><tbody id="audit-body"><tr><td colspan="6" class="muted">No events yet. Evaluate a transaction to begin.</td></tr></tbody></table></div>
+    </section>
+    <footer>PAYSHIELD AI · HACKATHON PROTOTYPE · AI IS ADVISORY; POLICY ENGINE IS AUTHORITATIVE</footer>
+  </main>
+</div>
+<script src="/static/script.js"></script>
+</body></html>
